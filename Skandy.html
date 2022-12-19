@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
+<head>
+  
+  <title>Details</title>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+</head>
 <body>
-
-<h2>HTML Forms</h2>
-
+  <h1>Enter Your Details</h1>
 <form id="formid">
 
-  <label for="fname">First name:</label><br>
-  <input type="text" class="fname" id="fname" ><br>
+  <label>Id   </label>
+  <input type="text" class="id" id="id" ><br><br>
 
-  <label for="lname">Last name:</label><br>
-  <input type="text" class="lname" id="lname" ><br>
+  <label>Name   </label>
+  <input type="text" class="name" id="name" ><br><br>
 
-  <label for="Email">Email Address:</label><br>
-  <input type="text" class="Email" id="Email"><br><br>
+  <label>Email    </label>
+  <input type="text" class="email" id="email"><br><br>
 
-  <input type="button" value="Submit" onclick="submitData()" value="send">
+  <input type="button" id="submit" onclick="submitData()" value="SEND">
   <div id="showJson"></div>
 </form> 
 <script>
-function submitData(){
-  var id=$('#fname').val();
-  var id=$('#lname').val();
-  var id=$('#Email').val();
+  function submitData(){
+  var id =$('#id').val();
+  var name=$('#name').val();
+  var email=$('#email').val();
 
   jsonObject={
-    "fname":"","lname":"","Email":""
+    "Id":"",
+    "Name":"",
+    "Email":""
   }
-  jsonObject.fname=fname;
-  jsonObject.lname=lname;
-  jsonObject.Email=Email;
+  jsonObject.Id=id;
+  jsonObject.Name=name;
+  jsonObject.Email=email;
 
   var str=JSON.stringify(jsonObject);
+  //document.write(str);
   document.getElementById('showJson').innerHTML=str;
 
 }
