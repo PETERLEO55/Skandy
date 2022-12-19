@@ -4,13 +4,39 @@
 
 <h2>HTML Forms</h2>
 
-<form action="/action_page.php">
+<form id="formid">
+
   <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" ><br>
+  <input type="text" class="fname" id="fname" ><br>
+
   <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" ><br><br>
-  <input type="submit" value="Submit">
+  <input type="text" class="lname" id="lname" ><br>
+
+  <label for="Email">Email Address:</label><br>
+  <input type="text" class="Email" id="Email"><br><br>
+
+  <input type="button" value="Submit" onclick="submitData()" value="send">
+  <div id="showJson"></div>
 </form> 
+<script>
+function submitData(){
+  var id=$('#fname').val();
+  var id=$('#lname').val();
+  var id=$('#Email').val();
+
+  jsonObject={
+    "fname":"","lname":"","Email":""
+  }
+  jsonObject.fname=fname;
+  jsonObject.lname=lname;
+  jsonObject.Email=Email;
+
+  var str=JSON.stringify(jsonObject);
+  document.getElementById('showJson').innerHTML=str;
+
+}
+
+</script>
 
 </body>
 </html>
